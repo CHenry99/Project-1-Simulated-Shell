@@ -9,10 +9,17 @@
 #ifndef PARAM_HPP
 #define PARAM_HPP
 
+#define MAXARGS 32
+
 class Param
 {
    private:
-	   int foobar;
+	   int foobari;
+	   char *inputRedirect;
+	   char *outputRedirect;
+	   int background;
+	   int argumentCount;
+	   char *argumentVector[MAXARGS];
    public:
 	   void printParams();
 };
