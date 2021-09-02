@@ -8,10 +8,21 @@
 
 #include "param.hpp"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 void Param::printParams(){
-	cout << "TODO: printParams()" << endl;
+	cout << "InputRedirect: [" <<
+		((inputRedirect != NULL) ? inputRedirect : "NULL") << "]" << endl <<
+		"OutputRedirect: [" <<
+		((outputRedirect != NULL) ? outputRedirect : "NULL") << "]" << endl <<
+		"Background: [" << background << "]" << endl <<
+		"ArgumentCount: [" << argumentCount << "]" << endl;
+	for(int i = 0; i < argumentCount; i++)
+	{
+	    cout << "ArugmentVector[" << i << "]: [" <<
+		    argumentVector[i] << "]" << endl;
+	}
 }
 
