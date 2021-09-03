@@ -14,3 +14,15 @@ using namespace std;
 Parse::Parse(){
 	cout << "Parse Created" << endl;
 }
+
+Parse::~Parse(){
+	
+}
+
+void Parse::SetUserInput(string userInput){
+	this->userInput = userInput;
+}
+
+Param* Parse::GetCurrParam(){
+	return this->currParam;
+}
