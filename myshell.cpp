@@ -17,7 +17,8 @@ int main(){
 	Parse* parser = new Parse();
 
 	/* @param currParam
-	 * not dynamically allocated - to be assigned in loop. */
+	 * not dynamically allocated - to be assigned in loop. 
+	 * !Concerned about this causing errors*/
 	Param* currParam;
 	
 
@@ -27,8 +28,14 @@ int main(){
 	    //Note - Newline buffer may pose an issue at some point
 	    getline(cin, userInput);
 	
-
-    	}while(userInput != "");	    
+	    //!Concern - What if ParseParam returns NULL
+	    //if(userInput is not empty)
+	    //currParam = parser->ParseParam(userInput);
+	    
+    	    /*if(-debug)
+	     * currParam->printParams(); Not dynamically allocated - may not work */
+	      	    
+    	}while(userInput != "exit");	    
 	
 	
 	return 0;
