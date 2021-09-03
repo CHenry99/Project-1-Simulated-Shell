@@ -1,20 +1,9 @@
-/**
- * This program just outputs hello
- *
- * @author Carolyn Henry
- * @date 9/2/2021
- * @info Course COP4634
- */
-
-#include "myshell.hpp"
 #include <iostream>
-
+#include "param.hpp"
+#include "parse.hpp"
 using namespace std;
+int main(){
+	cout << "hello" << endl;
 
-void Myshell::SayHello(){
-	cout << "Hello" << endl;
-}
-
-void Myshell::Prompt(){
-	cout << "$$ ";
+	return 0;
 }
