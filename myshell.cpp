@@ -14,3 +14,7 @@ using namespace std;
 void Myshell::SayHello(){
 	cout << "Hello" << endl;
 }
+
+void Myshell::Prompt(){
+	cout << "$$ ";
+}

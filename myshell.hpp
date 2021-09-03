@@ -16,6 +16,7 @@ class Myshell{
 	Param* myParams;
    public:
 	void SayHello();
+	void Prompt();
 };
 
 #endif

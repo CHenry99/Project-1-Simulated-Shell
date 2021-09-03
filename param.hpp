@@ -14,7 +14,6 @@
 class Param
 {
    private:
-	   int foobari;
 	   char *inputRedirect;
 	   char *outputRedirect;
 	   int background;

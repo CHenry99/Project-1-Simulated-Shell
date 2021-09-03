@@ -6,7 +6,7 @@ CC= g++
 #  -Wall turns on most, but not all, compiler warnings
 CXXFLAGS= -std=c++11 -g -Wall
 
-OBJECTS = param.o myshell.o
+OBJECTS = param.o myshell.o parse.o
 HEADERS := $(shell find . -path ./test -prune -o -name "*.hpp" -print)
 
 main: main.o $(OBJECTS)
@@ -15,4 +15,4 @@ main: main.o $(OBJECTS)
 $(OBJECTS): $(HEADERS)
 
 clean:
-	$(RM) *.o *.gch core main test/TestCase
+	$(RM) *.o *.gch core main
