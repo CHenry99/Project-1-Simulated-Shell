@@ -14,13 +14,11 @@
 
 class Parse{
    private:
-	   Param* currParam;
-	   std::string userInput; //char* ?
+	   int CheckSpecialChar(char* arg);
    public:
 	   Parse();
 	   ~Parse();
-	   void SetUserInput(std::string userInput);
-	   Param* GetCurrParam();
+	   Param* ParseUserInput(char* userInput, int n);
 };
 
 #endif

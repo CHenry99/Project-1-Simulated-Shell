@@ -18,7 +18,7 @@ using namespace std;
  *
  * @return returns nothing
  */
-void Param::printParams(){
+void Param::PrintParams(){
 	cout << "InputRedirect: [" <<
 		((inputRedirect != NULL) ? inputRedirect : "NULL") << "]" << endl <<
 		"OutputRedirect: [" <<
@@ -31,5 +31,33 @@ void Param::printParams(){
 	    cout << "ArugmentVector[" << i << "]: [" <<
 		    argumentVector[i] << "]" << endl;
 	}
+}
+
+/**
+ * Sets Input Redirect
+**/
+void Param::SetInputRedirect(char *inputRedirect){
+	this->inputRedirect = inputRedirect;
+}
+
+/**
+ * Sets Output Redirect
+**/
+void Param::SetOutputRedirect(char *outputRedirect){
+	this->outputRedirect = outputRedirect;
+}
+
+/**
+ * Sets Background
+**/
+void Param::SetBackground(int background){
+	this->background = background;
+}
+
+/**
+ * Adds Regular Argument to Vector
+**/
+void Param::AddArgument(char *argument){
+	this->argumentVector[this->argumentCount] = argument;
 }
 

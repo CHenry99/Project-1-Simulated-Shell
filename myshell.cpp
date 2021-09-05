@@ -12,30 +12,30 @@
 #include "parse.hpp"
 
 using namespace std;
-int main(){
-	string userInput = "";	
-	Parse* parser = new Parse();
+int main(int argc, char **argv){
+
+	char userInput[100];	
+	//Parse* parser = new Parse();
 
 	/* @param currParam
 	 * not dynamically allocated - to be assigned in loop. 
 	 * !Concerned about this causing errors*/
-	Param* currParam;
+	//Param* currParam;
 	
 
 	/* Central Program Loop */
-	do{
+	//do{
 	    cout << "$";
 	    //Note - Newline buffer may pose an issue at some point
-	    getline(cin, userInput);
-	
+	    cin.getline(userInput, 100);
 	    //!Concern - What if ParseParam returns NULL
 	    //if(userInput is not empty)
 	    //currParam = parser->ParseParam(userInput);
-	    
+	    cout << userInput << endl;
     	    /*if(-debug)
 	     * currParam->printParams(); Not dynamically allocated - may not work */
 	      	    
-    	}while(userInput != "exit");	    
+    	//}while();	    
 	
 	
 	return 0;
