@@ -39,5 +39,29 @@ int main(int argc, char **argv){
     	//}while();	    
 	
 	
+	
+	/*tokenization part that I had for rn* - Thitari 
+	char str[] = "cat < input.txt > output.txt";
+	char *token = strtok(str, " <>&");
+	while (token != NULL )
+  	 {
+
+       	printf("%s\n", token);
+        token = strtok(NULL, " <>&");
+
+    
+
+  	 }
+	 
+	 
+	 output: 
+	 cat
+	 input.txt
+	 output.txt
+	 */
+
+	
+	
+	
 	return 0;
 }
