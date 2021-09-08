@@ -20,6 +20,7 @@ class Param
 	   int argumentCount;
 	   char *argumentVector[MAXARGS];
    public:
+	   Param();
 	   void PrintParams();
 	   void SetInputRedirect(char *inputRedirect);
 	   void SetOutputRedirect(char *outputRedirect);
@@ -29,6 +30,7 @@ class Param
 	   char* GetOutputRedirect(){return this->outputRedirect;}
 	   int GetBackground(){return this->background;}
 	   int GetArgumentCount(){return this->argumentCount;}
+	   char** GetArguments(){return this->argumentVector;}
 };
 
 #endif
