@@ -8,9 +8,17 @@
 
 #include "param.hpp"
 #include <iostream>
-#include <string>
 
 using namespace std;
+
+Param::Param(){
+	this->inputRedirect = NULL;
+	this->outputRedirect = NULL;
+	this->background = 0;
+	this->argumentCount = 0;
+}
+
+
 
 
 /**
@@ -58,6 +66,6 @@ void Param::SetBackground(int background){
  * Adds Regular Argument to Vector
 **/
 void Param::AddArgument(char *argument){
-	this->argumentVector[this->argumentCount] = argument;
+	this->argumentVector[this->argumentCount++] = argument;
 }
 

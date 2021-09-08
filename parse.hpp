@@ -14,11 +14,18 @@
 
 class Parse{
    private:
+	   char* userInput;
+	   Param* currParam;
 	   int CheckSpecialChar(char* arg);
+	   bool AddInputRedirect(char* arg);
+	   bool AddOutputRedirect(char* arg);
+	   void ToggleBackgroundStatus();
+	   void AddRegArgument(char* arg);
    public:
 	   Parse();
 	   ~Parse();
-	   Param* ParseUserInput(char* userInput, int n);
+	   Param* ParseUserInput();
+	   void SetUserInput(char* userInput);
 };
 
 #endif

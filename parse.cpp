@@ -13,13 +13,15 @@ using namespace std;
 
 Parse::Parse(){
 	cout << "Parse Created" << endl;
+	this->userInput = NULL;
+	this->currParam = new Param();
 }
 
 Parse::~Parse(){
 	
 }
 
-Param* Parse::ParseUserInput(char* userInput, int n){
+Param* Parse::ParseUserInput(){
 
 	return NULL;
 }
@@ -41,4 +43,65 @@ int Parse::CheckSpecialChar(char* arg){
 		type = 0;
 
 	return type;
+}
+
+/**
+ * SetUserInput
+ * Sets the user input
+**/
+void Parse::SetUserInput(char* userInput){
+	this->userInput = userInput;
+}
+
+/**
+ * Adds the argument to the input redirect field
+ * @param arg - is the argument/file name to be added
+ * @return bool - false if there is a space after the < char
+**/
+bool Parse::AddInputRedirect(char* arg){
+	/* Move the start of the string over one memory location
+	 * to remove the < char */
+	arg = arg + 1;
+	
+	//Check for spaces
+	if(arg[0] == ' ')
+		return false;
+	
+	//No space, add the redirect arg to param
+	this->currParam->SetInputRedirect(arg);
+
+	return true;
+}
+
+/**
+ * Adds the argument to the output redirect field
+ * @param arg - is the argument/file name to be added
+ * @return bool - false if there is a space after the > char and the arg wasn't added
+**/
+bool Parse::AddOutputRedirect(char* arg){
+	/* Move the start of the string over one memory location
+	 * to remove the > char */
+	arg = arg + 1;
+	if(arg[0] == ' ')
+		return false;
+
+	//No space, add the redirect arg to param
+	this->currParam->SetOutputRedirect(arg);
+
+	return true;
+}
+
+/**
+ * Indicates Background char was found
+ * Sets appropriate field in param
+**/
+void Parse::ToggleBackgroundStatus(){
+	this->currParam->SetBackground(1);
+}
+
+/**
+ * Adds a regular type argument to the argument vector
+**/
+void Parse::AddRegArgument(char* arg){
+	this->currParam->AddArgument(arg);
 }

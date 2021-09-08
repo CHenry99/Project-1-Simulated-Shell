@@ -14,5 +14,11 @@ myshell: myshell.o $(OBJECTS)
 
 $(OBJECTS): $(HEADERS)
 
+testBuild: $(OBJECTS)
+	$(CC) $(CXXFLAGS) -Itest/catch -o test/TestCase $(OBJECTS) test/TestCase.cpp
+
+test: clean testBuild
+	test/TestCase --success
+
 clean:
 	$(RM) *.o *.gch core myshell

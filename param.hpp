@@ -22,7 +22,7 @@ class Param
    public:
 	   void PrintParams();
 	   void SetInputRedirect(char *inputRedirect);
-	   void SetOutputRedirect(char *inputRedirect);
+	   void SetOutputRedirect(char *outputRedirect);
 	   void SetBackground(int background);
 	   void AddArgument(char* argument);
 	   char* GetInputRedirect(){return this->inputRedirect;}

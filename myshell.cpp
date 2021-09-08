@@ -32,6 +32,7 @@ int main(int argc, char **argv){
 	    //if(userInput is not empty)
 	    //currParam = parser->ParseParam(userInput);
 	    cout << userInput << endl;
+	    cout << "hmm" << endl;
     	    /*if(-debug)
 	     * currParam->printParams(); Not dynamically allocated - may not work */
 	      	    
