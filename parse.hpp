@@ -14,7 +14,7 @@
 
 class Parse{
    private:
-	   char* userInput;
+	   char* cmd;
 	   Param* currParam;
 	   int CheckSpecialChar(char* arg);
 	   bool AddInputRedirect(char* arg);
@@ -24,8 +24,7 @@ class Parse{
    public:
 	   Parse();
 	   ~Parse();
-	   Param* ParseUserInput();
-	   void SetUserInput(char* userInput);
+	   void ParseCommand(char* cmd, size_t cmdSize, Param* currParam);
 };
 
 #endif

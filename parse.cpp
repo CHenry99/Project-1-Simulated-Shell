@@ -13,17 +13,39 @@ using namespace std;
 
 Parse::Parse(){
 	cout << "Parse Created" << endl;
-	this->userInput = NULL;
-	this->currParam = new Param();
+	this->cmd = NULL;
+	this->currParam = NULL;
 }
 
 Parse::~Parse(){
-	
+	delete cmd;
+	delete currParam;	
 }
 
-Param* Parse::ParseUserInput(){
+/*
+ * Tokenizes the user command, evaluates for special characters, places arguments in Param object
+*/
+void Parse::ParseCommand(char *cmd, size_t cmdSize, Param* currParam){
+	this->cmd = cmd;
+	this->currParam = currParam;
 
-	return NULL;
+
+	// Tokenization Loop
+	 /*tokenization part that I had for rn* - Thitari
+	  *         char str[] = "cat < input.txt > output.txt";
+	  *                 char *token = strtok(str, " <>&");
+	  *                         while (token != NULL )
+	  *                                  {
+	  *
+	  *                                                  printf("%s\n", token);
+	  *                                                                  token = strtok(NULL, " <>&");
+	  *
+	  *
+	  *
+	  *                                                                           }
+	  *                                                                                    */
+	
+	
 }
 
 /**
@@ -43,14 +65,6 @@ int Parse::CheckSpecialChar(char* arg){
 		type = 0;
 
 	return type;
-}
-
-/**
- * SetUserInput
- * Sets the user input
-**/
-void Parse::SetUserInput(char* userInput){
-	this->userInput = userInput;
 }
 
 /**

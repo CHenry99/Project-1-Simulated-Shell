@@ -18,7 +18,6 @@ Param::Param(){
 	this->argumentCount = 0;
 }
 
-
 /**
  * Outputs parameters
  *

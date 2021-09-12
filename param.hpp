@@ -22,6 +22,7 @@ class Param
    public:
 	   Param();
 	   void PrintParams();
+	   void Clear();
 	   void SetInputRedirect(char *inputRedirect);
 	   void SetOutputRedirect(char *outputRedirect);
 	   void SetBackground(int background);
