@@ -22,6 +22,7 @@ int main(int argc, char **argv){
 	size_t cmdSize = 0;         // Size of input string
 	int exitStatus = 0;         // Indicates if user entered the exit command
 	int debugStatus = DebugStatus(argc, argv);  // Indicates if user called -debug option
+	bool errorStatus = true;		    // Indicates error - false if error exists
 
 	/* Central Program Loop */
 	do{
@@ -36,12 +37,15 @@ int main(int argc, char **argv){
 	    exitStatus = ExitStatus(int(cmdSize), cmd);
 	   
 	    // Tokenizes the command into the currParam object
-	    p->ParseCommand(cmd, cmdSize, currParam);
+	    errorStatus = p->ParseCommand(cmd, cmdSize, currParam);
+
+	    // If error is present, output error message
+	    if(errorStatus == false)
+		    cout << "File redirect error" << endl;
 
 	    // Print parameters if the user called -debug
     	    if(debugStatus == 1)
-	        //currParam->PrintParams();
-		cout << "Debugged" << endl;
+	        currParam->PrintParams();
 	    
 	    delete currParam;
 	    delete p;

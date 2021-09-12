@@ -25,19 +25,38 @@ Parse::~Parse(){
 /*
  * Tokenizes the user command, evaluates for special characters, places arguments in Param object
 */
-void Parse::ParseCommand(char *cmd, size_t cmdSize, Param* currParam){
+bool Parse::ParseCommand(char *cmd, size_t cmdSize, Param* currParam){
 	this->cmd = cmd;
 	this->currParam = currParam;
+	int argType; 			// Will indicate what type of argument to add
+	bool errorStatus = true;  		// Indicates error for input/output redirect
 
 	// Tokenization Loop
 	char *token = strtok(cmd, " \n\t");
 	while(token != NULL)
 	{
-		cout << token << endl;
+		// Check if the argument is special
+		argType = CheckSpecialChar(token);
+
+		// Arguments are added via class functions based on type of argument
+		// @param error status monitors if there is an error
+		if(argType == 1)
+			errorStatus = this->AddOutputRedirect(token);
+			else if(argType == 2)
+				errorStatus = this->AddInputRedirect(token);
+				else if(argType == 3)
+					this->ToggleBackgroundStatus();
+					else
+						this->AddRegArgument(token);
+
+		// Check error status - stops accepting input if there is an error		
+		if(errorStatus)
+			return false;
+
 		token = strtok(NULL, " \n\t");
 	}                  
 	
-	
+	return true;
 }
 
 /**
@@ -62,7 +81,6 @@ int Parse::CheckSpecialChar(char* arg){
 /**
  * Adds the argument to the input redirect field
  * @param arg - is the argument/file name to be added
- * @return bool - false if there is a space after the < char
 **/
 bool Parse::AddInputRedirect(char* arg){
 	/* Move the start of the string over one memory location

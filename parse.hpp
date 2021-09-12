@@ -24,7 +24,7 @@ class Parse{
    public:
 	   Parse();
 	   ~Parse();
-	   void ParseCommand(char* cmd, size_t cmdSize, Param* currParam);
+	   bool ParseCommand(char* cmd, size_t cmdSize, Param* currParam);
 };
 
 #endif
