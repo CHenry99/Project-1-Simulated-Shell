@@ -36,6 +36,33 @@ void Param::PrintParams(){
 	    cout << "ArugmentVector[" << i << "]: [" <<
 		    argumentVector[i] << "]" << endl;
 	}
+	
+	
+	
+	
+	/*if we run the example he gvae, it won't run for some  reason, so this is what I came up with - Thitari :
+	cout << "InputRedirect: [";
+	if(inputRedirect != NULL){
+		cout << inputRedirect << "]" << endl;
+	}
+	else {
+		cout << "NULL" << endl;
+	}
+	cout << "OutputRedirect: [";
+	if(outputRedirect != NULL){
+		cout << outputRedirect << "]" << endl;
+	}
+	else {
+		cout << "NULL" << endl;
+	}
+	for(int i = 0; i < argumentCount; i++)
+	{
+		cout << "ArgumentVector[" << i << "]: [" << argumentVector[i] << "]" << endl;
+	}
+}
+*/
+	
+	
 }
 
 /**
