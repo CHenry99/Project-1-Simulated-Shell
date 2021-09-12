@@ -40,7 +40,8 @@ int main(int argc, char **argv){
 
 	    // Print parameters if the user called -debug
     	    if(debugStatus == 1)
-	        currParam->PrintParams();
+	        //currParam->PrintParams();
+		cout << "Debugged" << endl;
 	    
 	    delete currParam;
 	    delete p;

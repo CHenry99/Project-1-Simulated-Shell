@@ -7,6 +7,7 @@
  */
 
 #include <iostream>
+#include <cstring>
 #include "parse.hpp"
 
 using namespace std;
@@ -18,8 +19,7 @@ Parse::Parse(){
 }
 
 Parse::~Parse(){
-	delete cmd;
-	delete currParam;	
+		
 }
 
 /*
@@ -29,21 +29,13 @@ void Parse::ParseCommand(char *cmd, size_t cmdSize, Param* currParam){
 	this->cmd = cmd;
 	this->currParam = currParam;
 
-
 	// Tokenization Loop
-	 /*tokenization part that I had for rn* - Thitari
-	  *         char str[] = "cat < input.txt > output.txt";
-	  *                 char *token = strtok(str, " <>&");
-	  *                         while (token != NULL )
-	  *                                  {
-	  *
-	  *                                                  printf("%s\n", token);
-	  *                                                                  token = strtok(NULL, " <>&");
-	  *
-	  *
-	  *
-	  *                                                                           }
-	  *                                                                                    */
+	char *token = strtok(cmd, " \n\t");
+	while(token != NULL)
+	{
+		cout << token << endl;
+		token = strtok(NULL, " \n\t");
+	}                  
 	
 	
 }
