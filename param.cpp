@@ -41,7 +41,7 @@ void Param::PrintParams(){
 	
 	
 	
-	/*if we used what the example he gvae, the program won't run for some  reason, so this is what I came up with - Thitari :
+	/*if we run the example he gvae, it won't run for some  reason, so this is what I came up with - Thitari :
 	cout << "InputRedirect: [";
 	if(inputRedirect != NULL){
 		cout << inputRedirect << "]" << endl;
