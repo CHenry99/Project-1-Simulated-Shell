@@ -13,7 +13,6 @@
 using namespace std;
 
 Parse::Parse(){
-	cout << "Parse Created" << endl;
 	this->cmd = NULL;
 	this->currParam = NULL;
 }
@@ -35,6 +34,7 @@ bool Parse::ParseCommand(char *cmd, size_t cmdSize, Param* currParam){
 	char *token = strtok(cmd, " \n\t");
 	while(token != NULL)
 	{
+		cout << "TOKEN: " << token << endl;
 		// Check if the argument is special
 		argType = CheckSpecialChar(token);
 
@@ -50,7 +50,7 @@ bool Parse::ParseCommand(char *cmd, size_t cmdSize, Param* currParam){
 						this->AddRegArgument(token);
 
 		// Check error status - stops accepting input if there is an error		
-		if(errorStatus)
+		if(errorStatus == false)
 			return false;
 
 		token = strtok(NULL, " \n\t");
