@@ -2,6 +2,7 @@
  * Parse.cpp implements the command line parser of the shell
  *
  * @author Carolyn Henry
+ * @author Thitari Newhall
  * @date 9/2/2021
  * @info Course COP4634
  */
@@ -34,7 +35,6 @@ bool Parse::ParseCommand(char *cmd, size_t cmdSize, Param* currParam){
 	char *token = strtok(cmd, " \n\t");
 	while(token != NULL)
 	{
-		cout << "TOKEN: " << token << endl;
 		// Check if the argument is special
 		argType = CheckSpecialChar(token);
 
@@ -44,8 +44,10 @@ bool Parse::ParseCommand(char *cmd, size_t cmdSize, Param* currParam){
 			errorStatus = this->AddOutputRedirect(token);
 			else if(argType == 2)
 				errorStatus = this->AddInputRedirect(token);
-				else if(argType == 3)
+				else if(argType == 3){
 					this->ToggleBackgroundStatus();
+					return true;  // & char should be very last in cmd string - returns true to error handle any further inputs
+				}	
 					else
 						this->AddRegArgument(token);
 
@@ -81,14 +83,15 @@ int Parse::CheckSpecialChar(char* arg){
 /**
  * Adds the argument to the input redirect field
  * @param arg - is the argument/file name to be added
+ * @return - false if there is a space after the < char, true if file redirect added correctly
 **/
 bool Parse::AddInputRedirect(char* arg){
 	/* Move the start of the string over one memory location
 	 * to remove the < char */
 	arg = arg + 1;
 	
-	//Check for spaces
-	if(arg[0] == ' ')
+	// 0 indicates space after < char, returns false for input error
+	if(arg[0] == 0)
 		return false;
 	
 	//No space, add the redirect arg to param
@@ -106,7 +109,9 @@ bool Parse::AddOutputRedirect(char* arg){
 	/* Move the start of the string over one memory location
 	 * to remove the > char */
 	arg = arg + 1;
-	if(arg[0] == ' ')
+
+	// 0 indicates space after > char, returns false for input error
+	if(arg[0] == 0)
 		return false;
 
 	//No space, add the redirect arg to param

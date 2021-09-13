@@ -41,7 +41,7 @@ int main(int argc, char **argv){
 
 	    // If error is present, output error message
 	    if(errorStatus == false)
-		    cout << "File redirect error" << endl;
+		    cout << "ERROR - File redirect error." << endl;
 
 	    // Print parameters if the user called -debug
     	    if(debugStatus == 1)
