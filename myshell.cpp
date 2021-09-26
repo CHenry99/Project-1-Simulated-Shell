@@ -11,6 +11,15 @@
 #include "param.hpp"
 #include "parse.hpp"
 
+
+/*added library*/
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <stdlib.h>
+#include <cstring>
+
 using namespace std;
 
 int DebugStatus(int n, char **shellArgs);
