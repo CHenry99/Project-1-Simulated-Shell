@@ -45,8 +45,35 @@ int main(int argc, char **argv){
 
 	    // Print parameters if the user called -debug
     	    if(debugStatus == 1)
-	        currParam->PrintParams();
-	    
+	        currParam->PrintParams(); 
+		
+	  
+	    /*what I got for part two*/
+		/*char* args[3];
+		string ls = "ls";
+		string l = "-l";
+		
+		args[0] = (char*) ls.c_str();
+		args[1] = (char*) l.c_str();
+		args[2] = NULL;
+		
+		pid_t pid;
+		pid = fork();
+		if(pid == 0)
+		{
+			if(execvp(args[0], args) == -1)
+			{
+				//child
+				perror("exec");
+			}
+		}
+		if(pid > 0)
+		{ 
+			//parent
+			wait(0);
+		}*/
+		
+		
 	    delete currParam;
 	    delete p;
     	}while(exitStatus != 1);	    
